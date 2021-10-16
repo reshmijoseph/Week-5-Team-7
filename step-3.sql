@@ -2,11 +2,14 @@
 -----------------------------------------------
 
 -- select name and daily fee of all campgrounds
-
+SELECT name, daily_fee
+FROM campground;
 -- select name and daily fee of all campgrounds ordered by campground name
-
+SELECT name, daily_fee
+FROM campground
+ORDER BY name;
 -- select name, open from month, open to month, and daily fee of the campgrounds where daily fee is less than $100
-
+SELECT name 
 -- select name and daily fee of the campgrounds where the campground is open all year long
 
 
