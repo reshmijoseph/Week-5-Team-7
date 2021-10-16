@@ -11,11 +11,11 @@ ORDER BY name;
 -- select name, open from month, open to month, and daily fee of the campgrounds where daily fee is less than $100
 SELECT name, open_from_mm, daily_fee
 FROM campground
-WHERE daily_fee < 100;
+WHERE daily_fee < '100';
 -- select name and daily fee of the campgrounds where the campground is open all year long
 SELECT name, daily_fee
 FROM campground
-WHERE open_from_mm = 01 and open_to_mm = 12;
+WHERE open_from_mm = '01' and open_to_mm = '12';
 
 -- PARK TABLE
 -----------------------------------------------
