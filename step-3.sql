@@ -3,7 +3,6 @@
 
 -- select name and daily fee of all campgrounds
 SELECT name, daily_fee
-<<<<<<< HEAD
 FROM campground
 ;
 -- select name and daily fee of all campgrounds ordered by campground name
@@ -21,8 +20,7 @@ SELECT name, daily_fee
 FROM campground
 WHERE open_from_mm = '01' AND open_to_mm = '12'
 ;
-=======
-FROM campground;
+
 -- select name and daily fee of all campgrounds ordered by campground name
 SELECT name, daily_fee
 FROM campground
@@ -30,12 +28,12 @@ ORDER BY name;
 -- select name, open from month, open to month, and daily fee of the campgrounds where daily fee is less than $100
 SELECT name, open_from_mm, daily_fee
 FROM campground
-WHERE daily_fee < 100;
+WHERE daily_fee < '100';
+
 -- select name and daily fee of the campgrounds where the campground is open all year long
 SELECT name, daily_fee
 FROM campground
-WHERE open_from_mm = 01 and open_to_mm = 12;
->>>>>>> 5e35173034d3632becd70e06ce9a7768bb985251
+WHERE open_from_mm = '01' and open_to_mm = '12';
 
 -- PARK TABLE
 -----------------------------------------------
@@ -43,7 +41,6 @@ WHERE open_from_mm = 01 and open_to_mm = 12;
 -- select name and description of all parks order by established date in descending order
 SELECT name, description
 FROM park
-<<<<<<< HEAD
 ORDER BY establish_date DESC
 ;
 -- select name and description of all parks in Ohio
