@@ -1,9 +1,16 @@
 -- select the park name, campground name, open_from_mm, open_to_mm & daily_fee ordered by park name and then campground name
+<<<<<<< HEAD
 SELECT park.name, campground.name, campground.open_from_mm, campground.open_to_mm, campground.daily_fee
 FROM campground
 JOIN park USING (park_id)
 ORDER BY park.name, campground.name
 ;
+=======
+SELECT park.name, campground.name, open_from_mm, open_to_mm, daily_fee
+FROM park
+JOIN campground USING park_id
+ORDER BY park.name, campground.name;t 
+>>>>>>> 5e35173034d3632becd70e06ce9a7768bb985251
 
 -- select the park name and the total number of campgrounds for each park ordered by park name
 SELECT park.name, COUNT (campground_id)
