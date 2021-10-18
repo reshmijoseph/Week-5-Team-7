@@ -1,12 +1,26 @@
 -- select the park name, campground name, open_from_mm, open_to_mm & daily_fee ordered by park name and then campground name
-
+SELECT park.name, campground.name, campground.open_from_mm, campground.open_to_mm, campground.daily_fee
+FROM campground
+JOIN park USING (park_id)
+ORDER BY park.name, campground.name
+;
 
 -- select the park name and the total number of campgrounds for each park ordered by park name
-
+SELECT park.name, COUNT (campground_id)
+FROM park
+JOIN campground USING (park_id)
+GROUP BY park.name
+ORDER BY park.name
+;
 
 
 -- select the park name, campground name, site number, max occupancy, accessible, max rv length, utilities where the campground name is 'Blackwoods'
-
+SELECT p.name, c.name, s.site_number, s.max_occupancy, s.accessible, s.max_rv_length, s.utilities
+FROM campground c
+JOIN park p USING (park_id)
+JOIN site s USING (campground_id)
+WHERE c.name LIKE 'Blackwoods'
+;
 /*
   select park name, campground, total number of sites (column alias 'number_of_sites') ordered by park
   -------------------------------------------------
@@ -19,10 +33,20 @@
     Cuyahoga Valley	The Unnamed Primitive Campsites	5
   -------------------------------------------------
 */
-
+SELECT p.name, c.name, COUNT(site_id) AS number_of_sites
+FROM park p
+JOIN campground c USING (park_id)
+JOIN site s USING (campground_id)
+GROUP BY p.name, c.name
+ORDER BY p.name
+;
 
 -- select site number, reservation name, reservation from and to date ordered by reservation from date
-
+SELECT s.site_number, r.name, r.from_date, r.to_date
+FROM reservation r
+JOIN site s USING (site_id)
+ORDER BY r.from_date
+;
 
 
 /*
@@ -37,7 +61,13 @@
     Juniper Group Site	4
   -------------------------------------------------
 */
-
+SELECT c.name, COUNT (reservation_id) AS total_reservations
+FROM reservation r
+JOIN site s USING (site_id)
+JOIN campground c USING (campground_id)
+GROUP BY c.name
+ORDER BY total_reservations DESC
+;
 
 
 
