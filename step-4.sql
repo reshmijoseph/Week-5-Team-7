@@ -11,6 +11,13 @@ Join campground Using (park_id)
 group by park.name
 Order by park.name;
 
+-- select the park name and the total number of campgrounds for each park ordered by park name
+SELECT park.name, COUNT (campground_id)
+FROM park
+JOIN campground USING (park_id)
+GROUP BY park.name
+ORDER BY park.name
+;
 
 -- select the park name, campground name, site number, max occupancy, accessible, max rv length, utilities where the campground name is 'Blackwoods'
 Select park.name, campground.name, site_number, max_occupancy, accessible, max_rv_length, utilities

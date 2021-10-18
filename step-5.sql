@@ -14,6 +14,10 @@ INSERT INTO park
 Values('Ohiopyle State Park', 'Pennsylvania', '1965-01-01', 19052, 1000000, 'Ohiopyle State Park is a Pennsylvania state park on 19,052 acres in Dunbar, Henry Clay and Stewart Townships, Fayette County, Pennsylvania in the United States. The focal point of the park is the more than 14 miles of the Youghiogheny River Gorge that passes through the park.');
 
 
+INSERT INTO park
+VALUES (DEFAULT, 'Ohiopyle State Park', 'Pennsylvania', '1965-01-01', 19052, 1000000, ' Ohiopyle State Park is a Pennsylvania state park on 19,052 acres in Dunbar, Henry Clay and Stewart Townships, Fayette County, Pennsylvania in the United States. The focal point of the park is the more than 14 miles of the Youghiogheny River Gorge that passes through the park.')
+;
+
 
 /*
   STEP TWO: You just found out that there was an error with the park data. Please update the park visitors to 1.5 million anually.
@@ -37,6 +41,11 @@ Insert Into campground
         (park_id, name, open_from_mm, open_to_mm, daily_fee)
 Values(4, 'Youghiogheny', '01','12','95.00');
 
+INSERT INTO campground
+VALUES (DEFAULT, 4, 'Youghiogheny', '01', '12', 95.00);
+
+SELECT * FROM campground;
+
 
 /*
  STEP FOUR: Insert 3 new sites with the following data:
@@ -49,11 +58,11 @@ Values(4, 'Youghiogheny', '01','12','95.00');
  > campground_id 8 should be the id of the campground you just added 'Youghiogheny'
 
 */
-Insert into site
-        (site_number, campground_id)
- Values(623, 8),
-        (624, 8),
-        (625, 8);
+INSERT INTO site
+VALUES (DEFAULT, 8, 623), (DEFAULT, 8, 624), (DEFAULT, 8, 625);
+
+SELECT * FROM site;
+
 
 /*
  STEP FIVE: Insert 3 reservations, 1 for each site with the following data:
@@ -70,18 +79,23 @@ Insert Into reservation
         ( 624,  'Parker Family',  '2021-10-27',  '2021-11-6'),
         ( 625,  'Kent Family',    '2021-10-28',  '2021-11-7');
 
+INSERT INTO reservation
+VALUES (DEFAULT, 623, 'Wayne Family', '2021-10-26', '2021-11-05'), 
+       (DEFAULT, 624, 'Parker Family', '2021-10-27','2021-11-05'),
+       (DEFAULT, 625, 'Kent Family', '2021-10-28', '2021-11-05');   
+
+SELECT * FROM reservation;
 
 /*
  STEP SIX: The Wayne Family called and asked if they could change their reservation to today. Update the from_date to today and the to_date to a week from today.
 
  */
- Update reservation
- Set from_date = '2021-10-16', 
-       to_date = '2021-10-23'
- Where name like 'Wayne Family';
  
+ UPDATE reservation
+ SET from_date = '2021-10-16', to_date = '2021-10-23'
+ WHERE name LIKE 'Wayne Family';
 
-
+SELECT * FROM reservation;
 /*
  STEP SEVEN: The Kent family called and they would like to cancel their reservation. Delete the reservation for Kent Family.
 
