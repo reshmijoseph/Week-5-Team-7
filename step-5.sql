@@ -77,8 +77,8 @@ Insert Into reservation
  */
  Update reservation
  Set from_date = '2021-10-16', 
-        to_date = '2021-10-23'
- Where name = 'Wayne Family';
+       to_date = '2021-10-23'
+ Where name like 'Wayne Family';
  
 
 
